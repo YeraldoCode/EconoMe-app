@@ -1,0 +1,15 @@
+.bg-degrade{
+    background: linear-gradient(to right, rgb(56, 95, 56), rgb(128, 109, 3)); 
+}
+.nav-link, .navbar-brand{
+    color: rgb(255, 255, 255);
+}
+.nav-link:hover, .navbar-brand:hover{
+    color: rgb(255, 230, 0);
+}
+h1{
+    color: rgb(132, 255, 128);
+}
+.mt-100{
+    margin-top: 100px;
+}
