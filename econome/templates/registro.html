@@ -1,5 +1,74 @@
-{% extends "base.html" %}
-{% block title %}Inicio{% endblock %}
-{% block content %}
-    <h1 class="display-5">REGISTRARSE</h1>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+     <!-- Bootstrap CSS CDN -->
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="/static/css/style.css">
+    <title>Registrarse</title>
+</head>
+<body class="bg-degrade">
+    <nav>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="EconoME" width="30" height="24">
+              </a>
+        </div>
+    </nav>
+    <div class=" container"> 
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="text-ligth display-4 mt-100" style="font-size: 80px">"El éxito es el resultado de pequeños esfuerzos repetidos día tras día."</h1>
+            </div>
+            <div class="col-md-4">
+                <div class="card mt-50">
+                    <div class="card-body">
+                      <form>
+                        <!-- Name input -->
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <input type="text" id="registerName" class="form-control" />
+                          <label class="form-label" for="registerName">Name</label>
+                        </div>
+                  
+                        <!-- Username input -->
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <input type="text" id="registerUsername" class="form-control" />
+                          <label class="form-label" for="registerUsername">Username</label>
+                        </div>
+                  
+                        <!-- Email input -->
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <input type="email" id="registerEmail" class="form-control" />
+                          <label class="form-label" for="registerEmail">Email</label>
+                        </div>
+                  
+                        <!-- Password input -->
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <input type="password" id="registerPassword" class="form-control" />
+                          <label class="form-label" for="registerPassword">Password</label>
+                        </div>
+                  
+                        <!-- Repeat Password input -->
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <input type="password" id="registerRepeatPassword" class="form-control" />
+                          <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                        </div>
+                  
+                        <!-- Submit button -->
+                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block">Sign in</button>
+                      </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Bootstrap JS and dependencies -->
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
