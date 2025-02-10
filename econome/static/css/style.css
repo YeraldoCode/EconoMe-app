@@ -1,18 +1,74 @@
 .bg-degrade{
     background: linear-gradient(to right, rgb(56, 95, 56), rgb(128, 109, 3)); 
 }
-.nav-link, .navbar-brand{
-    color: rgb(255, 255, 255);
-}
-.nav-link:hover, .navbar-brand:hover{
-    color: rgb(255, 230, 0);
-}
+
 h1{
-    color: rgb(132, 255, 128);
+    color: rgb(0, 0, 0);
 }
 .mt-100{
     margin-top: 100px;
 }
 .mt-10{
-    margin-top: 10px;
+    margin-top: 100px;
+}
+/* Estilos para la barra de navegación */
+.navbar {
+    padding: 8px 20px;  /* Reducido de 15px 30px */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+
+/* Estilos para los links de navegación */
+.navbar-nav .nav-link {
+    color: #495057;
+    font-weight: 500;
+    padding: 6px 12px;  /* Reducido de 8px 15px */
+    margin: 0 3px;      /* Reducido de 0 5px */
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Estilos para el botón de cerrar sesión */
+.btn-warning.btn-rounded {
+    padding: 6px 15px;  /* Reducido de 8px 20px */
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background-color: #ffc107;
+    border: none;
+    color: #000;
+}
+
+/* El resto de los estilos se mantienen igual */
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.navbar-nav .nav-link.active {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.btn-warning.btn-rounded:hover {
+    background-color: #ff9800;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+.navbar-brand {
+    color: #000000 !important;  /* Negro sólido */
+    font-weight: 600;  /* Un poco más bold para mejor legibilidad */
+}
+
+.navbar-brand:hover {
+    color: #333333 !important;  /* Un gris oscuro al hover */
 }
