@@ -30,21 +30,15 @@ def perfil():
 def registro():
     return render_template('registro.html')
 
-
 @app.route('/agregar_usuario', methods=['POST'])
 def agregar_usuario():
-    # Capturar los datos del formulario
-    nombre = request.form.get('nombre')
-    email = request.form.get('email')
-    password = request.form.get('password')
-    
-    # Insertar el nuevo usuario en la base de datos
+    nombre = request.form.get('unombre')
+    email = request.form.get('uemail')
+    password = request.form.get('upassword')
     cursor.execute('INSERT INTO usuarios (nombre, email, clave) VALUES (%s, %s, %s)', 
                   (nombre, email, password))
     conexion.commit()
-    
-    # Redirigir al login después del registro exitoso
-    return render_template('login.html')
+    return 'usuario agregado correctamente'
 
 
 @app.route('/analisis')

@@ -27,36 +27,26 @@
             <div class="col-md-4">
                 <div class="card mt-10">
                     <div class="card-body">
-                      <form>
+                      <form action="{{ url_for('agregar_usuario') }}" method="POST">
                         <!-- Name input -->
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="text" id="registerName" class="form-control" />
+                          <input type="text" id="registerName" class="form-control" name="unombre" />
                           <label class="form-label" for="registerName">Nombre</label>
-                        </div>
-                  
-                        <!-- Username input -->
-                        <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="text" id="registerUsername" class="form-control" />
-                          <label class="form-label" for="registerUsername">Nombre de usuario</label>
                         </div>
                   
                         <!-- Email input -->
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="email" id="registerEmail" class="form-control" />
+                          <input type="email" id="registerEmail" class="form-control" name="uemail" />
                           <label class="form-label" for="registerEmail">Correo electronico</label>
                         </div>
                   
                         <!-- Password input -->
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="password" id="registerPassword" class="form-control" />
+                          <input type="password" id="registerPassword" class="form-control" name="upassword" />
                           <label class="form-label" for="registerPassword">Contraseña</label>
                         </div>
                   
-                        <!-- Repeat Password input -->
-                        <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="password" id="registerRepeatPassword" class="form-control" />
-                          <label class="form-label" for="registerRepeatPassword">Repetir contraseña</label>
-                        </div>
+                
                   
                         <!-- Submit button -->
                         <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block">Ingresar</button>
