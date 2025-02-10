@@ -27,23 +27,23 @@
             <div class="col-md-4">
                 <div class="card mt-100">
                     <div class="card-body">
-                        <form>
+                        <form method="post" action="/validacion_login">
                             <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                              <input type="email" id="form1Example1" class="form-control" />
-                              <label class="form-label" for="form1Example1">Email address</label>
+                              <input type="email" id="form1Example1" class="form-control" name="email"/>
+                              <label class="form-label" for="form1Example1">Correo electronico</label>
                             </div>
                           
                             <!-- Password input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                              <input type="password" id="form1Example2" class="form-control" />
-                              <label class="form-label" for="form1Example2">Password</label>
+                              <input type="password" id="form1Example2" class="form-control" name="password" />
+                              <label class="form-label" for="form1Example2">Contraseña</label>
                             </div>
                           
     
                           
                             <!-- Submit button -->
-                            <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block">Sign in</button>
+                            <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block">Ingresar</button>
                           </form>
                           <p class="mt-2">¿Aun no tienes tu cuenta? <a href="{{ url_for('registro') }}">Registrarse</a></p>
                     </div>

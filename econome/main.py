@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from flask import request
 
 app = Flask(__name__)
 
@@ -23,8 +24,11 @@ def registro():
 def analisis():
     return render_template('analisis.html')
 
-
-
+@app.route('/validacion_login', methods=['POST'])
+def validacion_login():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    return f'el email es {email} y el password es {password}'
 
 if __name__ == '__main__':
     app.run(debug=True)

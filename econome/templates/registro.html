@@ -25,42 +25,43 @@
                 <h1 class="text-ligth display-4 mt-100" style="font-size: 80px">"El éxito es el resultado de pequeños esfuerzos repetidos día tras día."</h1>
             </div>
             <div class="col-md-4">
-                <div class="card mt-50">
+                <div class="card mt-10">
                     <div class="card-body">
                       <form>
                         <!-- Name input -->
                         <div data-mdb-input-init class="form-outline mb-4">
                           <input type="text" id="registerName" class="form-control" />
-                          <label class="form-label" for="registerName">Name</label>
+                          <label class="form-label" for="registerName">Nombre</label>
                         </div>
                   
                         <!-- Username input -->
                         <div data-mdb-input-init class="form-outline mb-4">
                           <input type="text" id="registerUsername" class="form-control" />
-                          <label class="form-label" for="registerUsername">Username</label>
+                          <label class="form-label" for="registerUsername">Nombre de usuario</label>
                         </div>
                   
                         <!-- Email input -->
                         <div data-mdb-input-init class="form-outline mb-4">
                           <input type="email" id="registerEmail" class="form-control" />
-                          <label class="form-label" for="registerEmail">Email</label>
+                          <label class="form-label" for="registerEmail">Correo electronico</label>
                         </div>
                   
                         <!-- Password input -->
                         <div data-mdb-input-init class="form-outline mb-4">
                           <input type="password" id="registerPassword" class="form-control" />
-                          <label class="form-label" for="registerPassword">Password</label>
+                          <label class="form-label" for="registerPassword">Contraseña</label>
                         </div>
                   
                         <!-- Repeat Password input -->
                         <div data-mdb-input-init class="form-outline mb-4">
                           <input type="password" id="registerRepeatPassword" class="form-control" />
-                          <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                          <label class="form-label" for="registerRepeatPassword">Repetir contraseña</label>
                         </div>
                   
                         <!-- Submit button -->
-                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block">Sign in</button>
+                        <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block">Ingresar</button>
                       </form>
+                      <p class="mt-2">¿Ya tienes una cuenta? <a href="{{ url_for('login') }}">Iniciar sesion</a></p>
                     </div>
                 </div>
             </div>
