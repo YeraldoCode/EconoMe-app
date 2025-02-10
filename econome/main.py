@@ -31,6 +31,22 @@ def registro():
     return render_template('registro.html')
 
 
+@app.route('/agregar_usuario', methods=['POST'])
+def agregar_usuario():
+    # Capturar los datos del formulario
+    nombre = request.form.get('nombre')
+    email = request.form.get('email')
+    password = request.form.get('password')
+    
+    # Insertar el nuevo usuario en la base de datos
+    cursor.execute('INSERT INTO usuarios (nombre, email, clave) VALUES (%s, %s, %s)', 
+                  (nombre, email, password))
+    conexion.commit()
+    
+    # Redirigir al login después del registro exitoso
+    return render_template('login.html')
+
+
 @app.route('/analisis')
 def analisis():
     return render_template('analisis.html')
