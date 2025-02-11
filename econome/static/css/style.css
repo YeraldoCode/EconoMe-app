@@ -1,5 +1,5 @@
 .bg-degrade{
-    background: linear-gradient(to right, rgb(56, 95, 56), rgb(128, 109, 3)); 
+    background: linear-gradient(to right, rgb(255, 255, 255), rgb(81, 255, 0)); 
 }
 
 h1{
@@ -34,24 +34,24 @@ h1{
     border-radius: 20px;
     font-weight: 500;
     transition: all 0.3s ease;
-    background-color: #ffc107;
+    background-color: #55ff07;
     border: none;
     color: #000;
 }
 
 /* El resto de los estilos se mantienen igual */
 .navbar-nav .nav-link:hover {
-    color: #007bff;
-    background-color: rgba(0, 123, 255, 0.1);
+    color: #000000;
+    background-color: rgba(117, 212, 8, 0.250);
 }
 
 .navbar-nav .nav-link.active {
-    color: #007bff;
-    background-color: rgba(0, 123, 255, 0.1);
+    color: #030300;
+    background-color: rgba(96, 235, 4, 0.450);
 }
 
 .btn-warning.btn-rounded:hover {
-    background-color: #ff9800;
+    background-color: #73ff00;
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -70,5 +70,5 @@ h1{
 }
 
 .navbar-brand:hover {
-    color: #333333 !important;  /* Un gris oscuro al hover */
+    color: #009207 !important;  /* Un gris oscuro al hover */
 }

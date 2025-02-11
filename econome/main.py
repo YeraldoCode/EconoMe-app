@@ -13,39 +13,59 @@ conexion = mysql.connector.connect(host=datos.host,
                                    database=datos.database)
 cursor = conexion.cursor()
 
-@app.route('/')
-def login():
-    return render_template('login.html')
-
 @app.route('/registro')
 def registro():
     return render_template('registro.html')
 
+@app.route('/')
+def login():
+    if 'user_id' in session:
+        return redirect(url_for('home'))
+    return render_template('login.html')
 
 @app.route('/logout')
 def logout():
-    # Eliminar datos de la sesión
     session.clear()
     return redirect(url_for('login'))
 
 # Proteger rutas que requieren autenticación
 @app.route('/home')
 def home():
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
-    return render_template('home.html')
+        if 'id' in session:
+            return render_template('home.html')
+        else:
+            return redirect(url_for('/'))
 
 @app.route('/perfil')
 def perfil():
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
-    return render_template('perfil.html')
+        if 'id' in session:
+            return render_template('perfil.html')
+        else:
+            return redirect(url_for('/'))
 
 @app.route('/analisis')
 def analisis():
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
-    return render_template('analisis.html')
+        if 'id' in session:
+            return render_template('analisis.html')
+        else:
+            return redirect(url_for('/'))
+
+
+@app.route('/validacion_login', methods=['POST'])
+def validacion_login():
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    cursor.execute('SELECT * FROM usuarios WHERE email = %s AND clave = %s', (email, password))
+    usuarios = cursor.fetchall()
+
+
+    if len(usuarios) > 0:
+        session['id'] = usuarios[0][0]
+        return render_template('home.html')
+    else:
+        return render_template('login.html')
+    
 
 @app.route('/agregar_usuario', methods=['POST'])
 def agregar_usuario():
@@ -57,18 +77,6 @@ def agregar_usuario():
     conexion.commit()
     return render_template('home.html')
 
-@app.route('/validacion_login', methods=['POST'])
-def validacion_login():
-    email = request.form.get('email')
-    password = request.form.get('password')
-
-    cursor.execute('SELECT * FROM usuarios WHERE email = %s AND clave = %s', (email, password))
-    usuarios = cursor.fetchall()
-    
-    if len(usuarios) > 0:
-        return render_template('home.html')
-    else:
-        return render_template('login.html')
 
 
 if __name__ == '__main__':

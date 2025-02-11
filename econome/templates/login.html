@@ -6,20 +6,27 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-     <!-- Bootstrap CSS CDN -->
-     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-     <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/css/style.css">
     <title>Iniciar sesion</title>
 </head>
 <body class="bg-degrade">
-    <nav>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url_for('login') }}">
-                <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="EconoME" width="30" height="24">
-              </a>
+                ECONOME
+            </a>
         </div>
     </nav>
-    <div class=" container"> 
+    <!-- Navbar -->
+
+    <div class="container"> 
         <div class="row">
             <div class="col-md-8">
                 <h1 class="text-ligth display-4 mt-100" style="font-size: 80px">"El éxito es el resultado de pequeños esfuerzos repetidos día tras día."</h1>
@@ -29,31 +36,25 @@
                     <div class="card-body">
                         <form method="post" action="/validacion_login">
                             <!-- Email input -->
-                            <div data-mdb-input-init class="form-outline mb-4">
-                              <input type="email" id="form1Example1" class="form-control" name="email"/>
-                              <label class="form-label" for="form1Example1">Correo electronico</label>
+                            <div class="mb-4">
+                                <label class="form-label" for="email">Correo electrónico</label>
+                                <input type="email" id="email" class="form-control" name="email"/>
                             </div>
                           
                             <!-- Password input -->
-                            <div data-mdb-input-init class="form-outline mb-4">
-                              <input type="password" id="form1Example2" class="form-control" name="password" />
-                              <label class="form-label" for="form1Example2">Contraseña</label>
+                            <div class="mb-4">
+                                <label class="form-label" for="password">Contraseña</label>
+                                <input type="password" id="password" class="form-control" name="password" />
                             </div>
                           
-    
-                          
                             <!-- Submit button -->
-                            <button data-mdb-ripple-init type="submit" class="btn btn-success btn-block">Ingresar</button>
-                          </form>
-                          <p class="mt-2">¿Aun no tienes tu cuenta? <a href="{{ url_for('registro') }}">Registrarse</a></p>
+                            <button type="submit" class="btn btn-success btn-rounded btn-block">Ingresar</button>
+                        </form>
+                        <p class="mt-2">¿Aun no tienes tu cuenta? <a href="/registro">Registrarse</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-     <!-- Bootstrap JS and dependencies -->
-     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
