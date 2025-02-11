@@ -35,6 +35,8 @@ def home():
             return render_template('home.html')
         else:
             return redirect(url_for('/'))
+        
+            
 
 @app.route('/perfil')
 def perfil():
