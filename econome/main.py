@@ -113,7 +113,7 @@ def agregar_usuario():
         conexion.commit()
         
         # Obtener el ID del usuario recién creado
-        cursor.execute('SELECT id FROM usuarios WHERE email = %s', (email,))
+        cursor.execute('SELECT id_usuario FROM usuarios WHERE email = %s', (email,))
         usuario = cursor.fetchone()
         
         # Guardar el ID en la sesión
@@ -121,7 +121,6 @@ def agregar_usuario():
         
         # Redirigir a home en lugar de render_template
         return redirect(url_for('home'))
-        
     except Exception as e:
         conexion.rollback()
         print(f"Error al agregar usuario: {str(e)}")
