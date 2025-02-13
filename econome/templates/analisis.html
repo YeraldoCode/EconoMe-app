@@ -1,5 +1,45 @@
 {% extends "base.html" %}
 {% block title %}Inicio{% endblock %}
+
 {% block content %}
-    <h1>ANALISIS</h1>
+    <h2>ANALISIS</h2>
+    <canvas id="graficoMovimientos"></canvas>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var datos = JSON.parse('{{ datos_movimientos|tojson|safe }}');
+        var ctx = document.getElementById('graficoMovimientos');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: datos.map(d => d[0]),
+                datasets: [{
+                    label: 'Ingresos',
+                    data: datos.map(d => d[1]),
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Egresos',
+                    data: datos.map(d => d[2]),
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+</script>
 {% endblock %}

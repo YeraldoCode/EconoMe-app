@@ -4,6 +4,7 @@ import datos
 import os
 from datetime import datetime
 
+
 app = Flask(__name__)
 # Configurar clave secreta para las sesiones
 app.secret_key = os.urandom(24)
@@ -79,10 +80,26 @@ def perfil():
 
 @app.route('/analisis')
 def analisis():
-        if 'id' in session:
-            return render_template('analisis.html')
-        else:
-            return redirect(url_for('/'))
+    if 'id' not in session:
+        return redirect(url_for('login'))
+    
+    id_usuario = session['id']
+    
+    cursor.execute('''
+        SELECT 
+            DATE_FORMAT(fecha, '%M') as mes,
+            SUM(CASE WHEN tipo = 'ingreso' THEN monto ELSE 0 END) as ingresos,
+            SUM(CASE WHEN tipo = 'egreso' THEN monto ELSE 0 END) as egresos
+        FROM movimientos 
+        WHERE id_usuario = %s 
+        AND YEAR(fecha) = YEAR(CURRENT_DATE())
+        GROUP BY MONTH(fecha), mes
+        ORDER BY MONTH(fecha)
+        LIMIT 6
+    ''', (id_usuario,))
+    
+    datos = cursor.fetchall()
+    return render_template('analisis.html', datos_movimientos=datos)
 
 
 @app.route('/validacion_login', methods=['POST'])
