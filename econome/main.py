@@ -73,10 +73,26 @@ def home():
 
 @app.route('/perfil')
 def perfil():
-        if 'id' in session:
-            return render_template('perfil.html')
-        else:
-            return redirect(url_for('/'))
+    if 'id' not in session:
+        return redirect(url_for('login'))
+    
+    id_usuario = session['id']
+    
+    # Obtener información del usuario
+    cursor.execute('''
+        SELECT nombre, email 
+        FROM usuarios 
+        WHERE id_usuario = %s
+    ''', (id_usuario,))
+    
+    usuario = cursor.fetchone()
+    
+    if usuario:
+        return render_template('perfil.html', 
+                             nombre=usuario[0],
+                             email=usuario[1])
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/analisis')
 def analisis():
